@@ -1,0 +1,2 @@
+Player requires a rigid body, the object that is getting picked up also requires a rigid body.
+the object will have a box collider not a sphere collider for efficiancy
