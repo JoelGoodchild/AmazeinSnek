@@ -15,29 +15,39 @@ public class Points : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        //Changes the spawn of the object when the code begins
         resetSpawn();
-        //CurrentSpawn.GetComponent<SpawnInteraction>().SpawnObject();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        //Checkis if an object was not active previously before it decides what respawns
         if (!CurrentSpawn.activeInHierarchy)
         {
+            //Sets current object to inactive
             CurrentSpawn.SetActive(false);
+            //Changes what the current spawn object is
             CurrentSpawn = PrevSpawn;
+            //Changes the spawn
             resetSpawn();
+            //Respawns it if the object spawns in the same area as the previous object
             if (PrevSpawn == CurrentSpawn)
             {
+                //Calls reset method
                 resetSpawn();
             }
         }
     }
 
+    //Changes the spawn location of the object
     public void resetSpawn()
     {
+        //Randomises the location
         randNumber = Random.Range(0, PointsArr.Length);
+        //Makes the random number a value in the array
         CurrentSpawn = PointsArr[randNumber];
+        //sets that particular point as the spawn
         CurrentSpawn.SetActive(true);
     }
 }

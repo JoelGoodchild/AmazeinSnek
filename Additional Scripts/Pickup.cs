@@ -5,7 +5,9 @@ using UnityEngine;
 public class Pickup : MonoBehaviour {
 
     // Use this for initialization
-    void Awake () {
+    void Awake ()
+    {
+        //Sets Object to inactive by default, points script controls whether it is active or not
         gameObject.SetActive(false);
 	}
 	
@@ -16,14 +18,7 @@ public class Pickup : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        gameObject.SetActive(false);
-        
-        //If delay required
-        //Invoke("Respawn", 5);
-    }
-
-    public void Respawn()
-    {
+        //If there is a collisoin it sets the pickup object to inactive
         gameObject.SetActive(false);
     }
 }
